@@ -1,7 +1,7 @@
 var Rx = require('rx');
 
-var source = Rx.Observable.range(0, 3)
-  .map(function (x) { return Rx.Observable.range(x, 3); })
+var source = Rx.Observable.from(['a1', 'a2', 'b1', 'b2', 'a3', 'a4', 'b3', 'b4'])
+  .groupBy(function (item) { return item.substr(0, 1); })
   .concatAll();
 
 var subscription = source.subscribe(
