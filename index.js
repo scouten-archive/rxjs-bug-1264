@@ -1,4 +1,4 @@
-var Rx = require('rx');
+var Rx = require('rxjs');
 
 var source = Rx.Observable.from(['a1', 'a2', 'b1', 'b2', 'a3', 'a4', 'b3', 'b4'])
   .groupBy(function (item) { return item.substr(0, 1); })
